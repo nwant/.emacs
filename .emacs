@@ -24,7 +24,7 @@
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(package-selected-packages
    (quote
-    (solarized-theme helm use-package helm-ebdb evil-visual-mark-mode))))
+    (zenburn-theme solarized-theme helm use-package helm-ebdb evil-visual-mark-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -48,4 +48,4 @@
 (helm-mode 1)
 
 ;; use solarized dark theme in the GUI
-(when (display-graphic-p) (load-theme 'solarized-dark t))
+(when (display-graphic-p) (load-theme 'zenburn t))

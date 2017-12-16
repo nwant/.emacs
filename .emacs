@@ -32,7 +32,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -43,9 +42,23 @@
 (require 'evil)
 (evil-mode t) ;; enable evil-mode
 
+;; setup helm
 (require 'helm)
+(helm-mode 1) ;; enable helm-mode
 (global-set-key (kbd "M-x") 'helm-M-x) ;; bind helm to M-x
-(helm-mode 1)
 
 ;; use solarized dark theme in the GUI
 (when (display-graphic-p) (load-theme 'zenburn t))
+
+;; neotree settings
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+;; setup neotree for evil-mode
+(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+(evil-define-key 'normal neotree-mode-map (kbd ".") 'neotree-change-root)
+(evil-define-key 'normal neotree-mode-map (kbd "R") 'neotree-rename-node)
+(evil-define-key 'normal neotree-mode-map (kbd "h") 'neotree-hidden-file-toggle)
+(evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
